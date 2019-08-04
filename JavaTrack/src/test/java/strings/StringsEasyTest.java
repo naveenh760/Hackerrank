@@ -43,4 +43,15 @@ class StringsEasyTest {
 		assertFalse(StringsEasy.isAnagram(a, b));
 	}
 	
+	@ParameterizedTest
+	@ValueSource(strings = {"Samantha", "Samantha21","JuliaZ007"})
+	void testIsValidUserName_true(String username) {
+		assertTrue(StringsEasy.isValidUserName(username));
+	}
+	
+	@ParameterizedTest
+	@ValueSource(strings = {"Julia","_Julia","1Samantha"})
+	void testIsValidUserName_false(String username) {
+		assertFalse(StringsEasy.isValidUserName(username));
+	}
 }

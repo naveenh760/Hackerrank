@@ -1,15 +1,18 @@
 package strings;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 public class StringsEasy {
     
 	private static final Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
+		String a = "He is a very very good boy, isn't he?";
+		getStringTokens(a);
+		
 
 	}
 
@@ -66,5 +69,32 @@ public class StringsEasy {
 	        
 	        return sortedA.equalsIgnoreCase(sortedB);
 	    }
+	 
+	 static String[] getStringTokens(String a) {
+		  String[] tokens = a.split("[!,?._'@ ]+");
+	      return tokens;
+	 }
+	 
+	 public static void patternSyntaxCheck() {
+		 Scanner in = new Scanner(System.in);
+	      int testCases = Integer.parseInt(in.nextLine());
+	      while(testCases>0){
+	           try{
+	               String pattern = in.nextLine();
+	               Pattern.compile(pattern);
+	               System.out.println("Valid");
+	           }
+	          catch(Exception e) {
+	              System.out.println("Invalid");
+	          }
+	         testCases--; 
+	      }
+	      in.close();
+	 }
+	 
+	 public static boolean isValidUserName(String input) {
+		 String regExp = "^[A-Za-z]([A-Za-z0-9_]){7,29}$";
+		 return input.matches(regExp);
+	 }
 
 }
