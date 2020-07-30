@@ -280,5 +280,36 @@ public class Easy {
 		return Math.min(p / 2, n / 2 - p / 2);
 
 	}
+	
+	//loops
+	static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+		int max = - 1; 
+        for(int keyboard: keyboards) {
+        	for(int drive: drives) {
+        		int total = keyboard + drive;
+        		if( total <= b && total > max) {
+        			max = total;
+        		}
+        	}
+        }
+        return max;
+    }
+	
+	//Math
+	static String catAndMouse(int x, int y, int z) {
+       int catADist = Math.abs(z - x);
+       int catBDist = Math.abs(z - y);
+       
+       if(catADist < catBDist) {
+    	   return "Cat A";
+       }
+       else if(catADist > catBDist) {
+    	   return "Cat B";
+       }
+       else {
+    	   return "Mouse C";
+       }
+
+    }
 
 }
